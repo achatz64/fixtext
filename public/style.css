@@ -1,0 +1,174 @@
+body {
+  font-family: Roboto,arial,sans-serif;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: .5rem;
+}
+
+div {
+  padding: .5rem;
+}
+
+div.input-div {
+  padding: 0rem;
+  display: flex;
+}
+
+div.buttons {
+  padding: 0rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.character {
+  padding: 0rem;
+}
+
+div.toolbar {
+  /* We first create a flex layout context */
+  display: flex;
+  width: 100%;  
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border: none;
+  align-items: center;
+}
+
+div.flex-item {
+  font-size: 1.5rem;
+  font-family: Roboto,arial,sans-serif;
+  /*border: 1px solid;*/
+}
+
+div.flex-item-center {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 4rem;
+  text-align: center;
+  display: flex;
+}
+
+div.flex-right {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+div.display-green {
+  padding: 0.5rem; 
+}
+
+textarea {
+  word-wrap: break-word;  
+	display: block; 
+	/*border: 10px solid white;*/
+	border-radius: .5rem; 
+	padding: 0.5rem; 
+	color: #666; 
+	font-size: 1rem;
+	margin-bottom: .6rem;
+  width: 80%;
+  height: 5rem;
+  box-shadow: 0 0.05rem 0.3rem;
+  font-family: Roboto,arial,sans-serif; 
+	
+	&:focus {
+		/*outline: none;*/
+		/*border-color: white;*/
+		box-shadow: 0 0 0 .1rem; 
+	}
+}
+
+button {
+  background-color: #dbdbdb;
+  color: #1967d2;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0rem 1rem;
+}
+
+button.button1 {
+  background-color: #dbdbdb;
+  color: #1967d2;
+  text-align: center;
+  border: none;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0rem 1rem;
+  font-family: 'Architects Daughter', cursive;
+  border-radius: 4px;
+}
+
+button:hover {
+   background-color: #e1ecf0;
+}
+
+select {
+  /* Reset */
+  font: inherit;
+  padding: 0 0.1em; 
+  /* Personalize */
+  /* width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em; */
+
+  color: #1967d2;
+  background-color: #dbdbdb;
+  border-radius: 0.25em;
+  cursor: pointer;
+  /* <option> colors 
+  option {
+    color: inherit;
+    background-color: $option;
+  } */
+  /* Remove focus outline */
+  &:focus {
+    outline: none;
+  }
+  /* Remove IE arrow */
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+div.contact {
+  font-size: 1rem; 
+  padding: 3rem 0.5rem 0rem;
+  /*border: 1px solid;*/
+}
+
+p.contact:hover {
+  color: #666;
+}
+
+button.reset {
+     background-color: rgba(255, 255, 255, 0);
+    color: #1967d2;
+    text-align: left;
+  font-size: 2rem;
+  padding: 0rem 0.5rem;
+    color: #666;
+    border: 0;
+    border-radius: 50%;
+    transition: background 200ms;
+    display:none;
+    outline: none;
+  }
+
+button.reset:hover {
+  /*background-color: #eee; */
+  color: black;
+}
+
+div.output {
+  width: 80%;
+  box-shadow: 0 0.05rem 0.3rem;
+  border-radius: .5rem; 
+}
+
+button.reset.copy {
+  font-size: 1.3rem;
+}

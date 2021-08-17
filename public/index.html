@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Fixtext </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/d97b87339f.js" crossorigin="anonymous"></script>
+
+<div class="toolbar">
+  <div class="flex-item-center"> 
+    <div style="color:blue;" class="character"> F </div>
+    <div style="color:red;" class="character"> i </div>
+    <div style="color:yellow;" class="character"> x </div>
+    <div style="color:blue;" class="character"> t </div>
+    <div style="color:#0F9D58;" class="character"> e </div>
+    <div style="color:red;" class="character"> x </div>
+    <div style="color:yellow;" class="character"> t </div>
+    <div style="color:#666; " class="character"> .xyz </div>
+  </div>
+  <div class="flex-right">
+    <div class="flex-item"> 文 Language 
+      <select id="languageSelection" onchange="changePlaceholders();"
+              title="Select language">
+  <option selected value="0">English</option>
+  <option value="1">Deutsch</option>
+ </select>  </div>
+</div>
+</div>
+<div>
+	<div class="input-div"> 
+    <textarea id="input-text-field"  maxlength="1000" type="text" placeholder="Your text..." onfocus="removePlaceholder(); addClear();" 
+onblur="changePlaceholders(); if (this.value=='') {removeClear();}"></textarea> 
+    <div class="buttons">
+    <button class="reset" id="button-reset" onclick="clearInput();" title="Clear source text">&times;</button>
+     </div>
+  </div>
+  <button class="button1" onclick="myFunction();" title="Fix text"> Fix </button>
+  </div>
+
+<div>
+  <div class="input-div" id="display-out">
+    <div class="output" id="display-green" hidden></div>
+      <div class="buttons">
+        <button class="reset copy" id="copyButton" onclick="copy()" title="Copy"><i class="far fa-copy"></i> </button>
+      </div>
+  </div>
+<p id="error"></p>
+</div>
+
+<div class="contact"> <p class="p contact" onclick="this.innerHTML='击 Contact developer: andre.chatzistamatiou@gmail.com';" title="Contact">击 Contact developer</p> </div>
+
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>

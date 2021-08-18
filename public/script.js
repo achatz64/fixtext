@@ -1,4 +1,22 @@
 import * as Diff from "https://cdn.skypack.dev/diff@5.0.0";
+
+// Anonymous firebase authentication 
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    var uid = user.uid;
+    console.log(uid);
+  } 
+});
+
+firebase.auth().signInAnonymously()
+  .then(() => {
+    console.log('Anonymous id requested'); 
+  })
+  .catch((error) => {
+    console.error('Error requesting anonymous id from Firebase Auth', error);
+  });
+
 // Language
 let lang;
 
@@ -12,7 +30,6 @@ function findLanguage() {
 // Placeholders logic
 
 const lang2placeholderInput = {"en": "Your text...", "de": "Dein Text..."};
-const lang2placeholderOutput = {"en": "Fixed text...", "de": "Besserer Text..."};
 
 function changePlaceholders(){
   let lang = findLanguage();
@@ -105,8 +122,9 @@ async function myFunction() {
       let textSV = translate(outSV, targetLang, sourceLang);
       let fixedText = await textSV.then(response => errorHandling(response)); 
       addOutput(fixedText, text);
+      saveFix({sourceLang, targetLang, text, outSV, fixedText});
     }
-    catch (error) {errorDisplay(error);}
+    catch (error) {console.log(error); errorDisplay(error);}
   }  
 }
 
@@ -144,3 +162,24 @@ function copy() {
 }
 
 window.copy = copy;
+
+// adding firebase store support to save requests/responses
+
+var db = firebase.firestore();
+
+function saveFix({sourceLang, targetLang, text, outSV, fixedText}){
+   // Add a new message entry to the Firebase database.
+   let collection = 'users/fixes/'+firebase.auth().currentUser.uid;
+   return db.collection(collection).add({
+    sourceLang: sourceLang,
+    targetLang: targetLang,
+    inputText: text,
+    translation: outSV,
+    backTranslation: fixedText,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(function(error) {
+    console.error('Error writing request to Firebase Database', error);
+  });
+}
+
+//window.db = db;

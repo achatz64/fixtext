@@ -172,3 +172,13 @@ div.output {
 button.reset.copy {
   font-size: 1.3rem;
 }
+
+#copy-button-image {
+  display:inline-block; 
+  fill:#666;
+}
+
+#copy-button-image:hover {
+  display:inline-block; 
+  fill:black;
+}

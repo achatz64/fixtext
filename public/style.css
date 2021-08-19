@@ -72,12 +72,6 @@ textarea {
   height: 5rem;
   box-shadow: 0 0.05rem 0.3rem;
   font-family: Roboto,arial,sans-serif; 
-	
-	&:focus {
-		/*outline: none;*/
-		/*border-color: white;*/
-		box-shadow: 0 0 0 .1rem; 
-	}
 }
 
 button {
@@ -119,19 +113,6 @@ select {
   background-color: #dbdbdb;
   border-radius: 0.25em;
   cursor: pointer;
-  /* <option> colors 
-  option {
-    color: inherit;
-    background-color: $option;
-  } */
-  /* Remove focus outline */
-  &:focus {
-    outline: none;
-  }
-  /* Remove IE arrow */
-  &::-ms-expand {
-    display: none;
-  }
 }
 
 div.contact {
@@ -178,7 +159,22 @@ button.reset.copy {
   fill:#666;
 }
 
-#copy-button-image:hover {
-  display:inline-block; 
+#copy-button-image:hover { 
   fill:black;
 }
+
+@media only screen and (max-width: 500px){
+
+  div.flex-item-center {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+  } 
+
+  div.flex-item {
+    font-size: 1rem;
+    font-family: Roboto,arial,sans-serif;
+  }  
+}
+
